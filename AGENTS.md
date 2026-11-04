@@ -1,4 +1,4 @@
-# CLAUDE.md
+# AGENTS.md
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
@@ -8,11 +8,15 @@ A learning repository, not a product. Luis is working through a structured Go cu
 
 The code here exists to demonstrate language mechanics. Optimize every change for what it teaches, not for what it ships.
 
+## Capstone project (the why)
+
+The target: a small CRUD list app — create, update, and delete items in a list — to present at Luis's new job. Stack: a Go web server, a Vite + React frontend, a Postgres database. Every module aims at this app; concepts land as the app needs them. Go stays standard-library first; frameworks and drivers are introduced only when the path reaches them.
+
 ## Teaching contract
 
 These override the usual "be efficient, finish the task" instincts:
 
-- **Luis writes all the Go. Claude never edits `.go` files.** Not to demonstrate, not to fix, not to "just show" something, not even to induce an error the lesson calls for. The loop is: Claude states what needs to happen and why → Luis makes the edit and runs it → Claude reviews the result. Typing the code is how the learning happens, so doing it for him removes the entire point of the exercise.
+- **Luis writes all the Go. Agents never edits `.go` files.** Not to demonstrate, not to fix, not to "just show" something, not even to induce an error the lesson calls for. The loop is: Claude states what needs to happen and why → Luis makes the edit and runs it → Claude reviews the result. Typing the code is how the learning happens, so doing it for him removes the entire point of the exercise.
 - **One thing at a time.** Do not move on to the next concept until the current one is done and understood.
 - **Never explain ahead of the result.** Give the instruction, nothing more — no preview of what will happen, no "what to look for", no framing of why the exercise exists. Explaining before Luis runs it spoils the surprise the exercise is built on, and he does not learn that way. Explanation comes *after* the output exists, as a discussion of what he just saw.
 - **Confirm understanding before advancing.** Move to the next thing only once Luis has said he understood, or has demonstrated it. Do not assume the lesson landed because the command worked.
@@ -27,7 +31,7 @@ These override the usual "be efficient, finish the task" instincts:
 | # | Module | Status |
 |---|--------|--------|
 | 0 | Toolchain | Done |
-| 1 | Program shape | Mid-module |
+| 1 | Program shape | Review in progress |
 | 2 | Types and memory | Next — longest module, where Python habits need the most adjusting |
 | 3 | Functions and errors | |
 | 4 | Methods and interfaces | |
@@ -37,6 +41,8 @@ These override the usual "be efficient, finish the task" instincts:
 | 8 | Idiom and review | |
 | 9 | Generics | |
 | 10 | Build and ship | |
+
+Restart, 2026-11-04: fast-paced review pass over modules 0–1 first, then the path continues toward the capstone.
 
 ### Module 0 — Toolchain (done)
 
@@ -67,6 +73,10 @@ Remaining in module 1: the one-directory-one-package rule (taught by inducing th
 
 The repository root holds only Go work: `go.mod`, `README.md`, and the numbered exercise directories. Unrelated projects do not belong here — an unrelated `remotion/` repo was nested at the root and has since been moved out.
 
+## Environment
+
+Luis develops on his Mac (Apple Silicon, go1.27.0). His work team runs WSL on Windows — keep everything portable: no Mac-specific paths or scripts, Postgres provided via Docker so the app runs identically on both machines. The curriculum itself never depends on the OS.
+
 ## Commands
 
 ```bash
@@ -92,4 +102,4 @@ Treat that page as the source of truth for what he has actually absorbed — rea
 - `LEARNINGS.md` — discoveries and decisions worth keeping across sessions. Append as modules complete.
 - `todo_list.md` — open situations with numbered proposals, plus a `# Solved` section. Only Luis directs edits to it.
 
-Neither file exists at the root yet. Create them when the curriculum first produces content worth persisting.
+`LEARNINGS.md` exists since the 2026-11-04 restart. `todo_list.md` does not exist yet — create only if Luis asks for it.
