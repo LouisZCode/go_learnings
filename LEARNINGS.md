@@ -9,3 +9,4 @@ Discoveries and decisions worth keeping across sessions. Append as modules compl
 - Environment: Luis develops on macOS (arm64, go1.27.0); the work team uses WSL on Windows. Everything stays portable; Postgres will run via Docker.
 - Git verified: remote `github.com/LouisZCode/go_learnings` reachable, push works.
 - Notion MCP was not connected this session — the 🧿 GO notes page could not be reviewed. Revisit next session.
+- Learning sources locked (2026-11-05): the two course videos are downloaded to `media/` with `.transcript.md` sidecars generated from their embedded YouTube captions (91.7k and 59.6k words). `media/` is gitignored — videos and transcripts live locally only.

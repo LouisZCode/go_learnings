@@ -70,6 +70,12 @@ Remaining in module 1: the one-directory-one-package rule (taught by inducing th
 - `go.mod` at the root declares module `github.com/LouisZCode/go_learnings`. There is exactly one module; all work lives in numbered subdirectories.
 - `00_intro/` — module 1 exercises. `hello.go` (`func main`) and `greet.go` (`greeting`) are two files in one `package main`, demonstrating that files in a package see each other with no import.
 - New modules get their own numbered directory (`01_`, `02_`, …). One directory is one package.
+- `media/` — course videos and their `.transcript.md` sidecars (learning material only, gitignored; never committed).
+
+Learning sources (agreed 2026-11-04, nothing else):
+- Video: "Go Programming – Golang Course with Bonus Projects" (freeCodeCamp-style, 9.5h) — youtube.com/watch?v=un6ZyFkqFKo
+- Video: "Go Programming - Full Course" (4.7h) — youtube.com/watch?v=V-lI7AmusGs
+- The official Go documentation (go.dev, go.dev/doc, pkg.go.dev)
 
 The repository root holds only Go work: `go.mod`, `README.md`, and the numbered exercise directories. Unrelated projects do not belong here — an unrelated `remotion/` repo was nested at the root and has since been moved out.
 
