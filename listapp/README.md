@@ -25,23 +25,18 @@ API: `GET /api/items` · `POST /api/items` · `PUT /api/items/{id}` · `DELETE /
 
 Creates the `listapp` role (password `listapp`), the database, and the `items` table.
 
-**macOS — PostgreSQL 18 from the official installer:**
+**macOS and WSL / Linux — identical** (on macOS the PostgreSQL 18 installer creates the `postgres` OS user):
 
 ```bash
-/Library/PostgreSQL/18/bin/psql -h localhost -U postgres \
+sudo -u postgres /Library/PostgreSQL/18/bin/psql \
   -c "CREATE ROLE listapp LOGIN PASSWORD 'listapp';" \
-  -c "CREATE DATABASE listapp OWNER listapp;"
-
-PGPASSWORD=listapp /Library/PostgreSQL/18/bin/psql -h localhost -U listapp -d listapp -f db/init.sql
+  -c "CREATE DATABASE listapp OWNER listapp;"      # on WSL/Linux: just `psql` (apt puts it on PATH)
 ```
 
-**WSL / Linux (team environment):**
+Then create the table (no password typing — the role's password is `listapp`, passed via env):
 
 ```bash
-sudo -u postgres psql \
-  -c "CREATE ROLE listapp LOGIN PASSWORD 'listapp';" \
-  -c "CREATE DATABASE listapp OWNER listapp;"
-sudo -u postgres psql -d listapp -f db/init.sql
+PGPASSWORD=listapp psql -h localhost -U listapp -d listapp -f db/init.sql
 ```
 
 ## Run it

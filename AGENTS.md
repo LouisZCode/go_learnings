@@ -10,7 +10,7 @@ The code here exists to demonstrate language mechanics. Optimize every change fo
 
 ## Capstone project (the why)
 
-The target: a small CRUD list app — create, update, and delete items in a list — to present at Luis's new job. Stack: a Go web server, a Vite + React frontend, a Postgres database. Every module aims at this app; concepts land as the app needs them. Go stays standard-library first; frameworks and drivers are introduced only when the path reaches them.
+The target: a small CRUD list app — create, update, and delete items in a list — to present at Luis's new job. Stack: a Go web server, a Vite + React frontend, a Postgres database. Every module aims at this app; concepts land as the app needs them. Go stays standard-library first; frameworks and drivers are introduced only when the path reaches them. The reference implementation lives in `listapp/` — Claude wrote it so Luis can read, run, and replicate it on the work laptop; the teaching contract (Luis writes the Go) still applies to all learning exercises.
 
 ## Teaching contract
 
@@ -67,10 +67,11 @@ Remaining in module 1: the one-directory-one-package rule (taught by inducing th
 
 ## Repository layout
 
-- `go.mod` at the root declares module `github.com/LouisZCode/go_learnings`. There is exactly one module; all work lives in numbered subdirectories.
+- `go.mod` at the root declares module `github.com/LouisZCode/go_learnings`. There are two Go modules: the learning module at the root (numbered exercise directories) and the capstone app in `listapp/` with its own `go.mod` — run the app's Go commands from inside `listapp/`.
 - `00_intro/` — module 1 exercises. `hello.go` (`func main`) and `greet.go` (`greeting`) are two files in one `package main`, demonstrating that files in a package see each other with no import.
 - New modules get their own numbered directory (`01_`, `02_`, …). One directory is one package.
 - `media/` — course videos and their `.transcript.md` sidecars (learning material only, gitignored; never committed).
+- `listapp/` — the capstone reference implementation (Go CRUD API + Vite/React frontend + Postgres). Luis reads, runs, and replicates it; new Go in the learning exercises stays his to write.
 
 Learning sources (agreed 2026-11-04, nothing else):
 - Video: "Go Programming – Golang Course with Bonus Projects" (freeCodeCamp-style, 9.5h) — youtube.com/watch?v=un6ZyFkqFKo
@@ -81,7 +82,7 @@ The repository root holds only Go work: `go.mod`, `README.md`, and the numbered 
 
 ## Environment
 
-Luis develops on his Mac (Apple Silicon, go1.27.0). His work team runs WSL on Windows — keep everything portable: no Mac-specific paths or scripts, Postgres provided via Docker so the app runs identically on both machines. The curriculum itself never depends on the OS.
+Luis develops on his Mac (Apple Silicon, go1.27.0). His work team runs WSL on Windows — keep everything portable: no Mac-specific paths or scripts. Postgres runs locally, no Docker (decided 2026-11-05): the Mac already has PostgreSQL 18 from the official installer; the team's WSL machines use apt-installed Postgres. Setup steps live in `listapp/README.md`.
 
 ## Commands
 
