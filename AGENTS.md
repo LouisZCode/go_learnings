@@ -72,7 +72,7 @@ Remaining in module 1: the one-directory-one-package rule (taught by inducing th
 - New modules get their own numbered directory (`01_`, `02_`, …). One directory is one package.
 - `media/` — course videos and their `.transcript.md` sidecars (learning material only, gitignored; never committed).
 - `listapp/` — the capstone reference implementation (Go CRUD API + Vite/React frontend + Postgres). Luis reads, runs, and replicates it; new Go in the learning exercises stays his to write.
-- `listapp-evolution/` — the same app rebuilt in small runnable steps (`00_basic_http` → `01_crud_complete` → `02_postgres` → `03_frontend`). Each step is part of the root module and runs with `go run ./listapp-evolution/<step>`; see its README for the ladder.
+- `listapp-evolution/` — the same app rebuilt in small runnable steps (`00_basic_http` → `02_postgres` → `01_crud_complete` → `03_frontend`). Steps that stay std-lib-only (00) belong to the root module and run from the repo root; steps that add dependencies (02: pgx) get their own `go.mod` and run from inside their folder — same pattern as `listapp/`. See its README for the ladder and run commands.
 
 Learning sources (agreed 2026-11-04, nothing else):
 - Video: "Go Programming – Golang Course with Bonus Projects" (freeCodeCamp-style, 9.5h) — youtube.com/watch?v=un6ZyFkqFKo
