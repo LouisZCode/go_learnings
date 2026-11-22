@@ -10,13 +10,14 @@ Learning repo. Luis learns Go from zero; the agent is the teacher.
   Never explain ahead of the result.
 - Errors are the lesson: break things on purpose, read the real output together.
 - A block counts when Luis can explain it out loud in German, one breath per function.
+- **VS Code drills:** during every Go block, at a random moment, the Manager quizzes ONE action from `.pi/agents/vscode.md` § Drills — Luis performs it and explains it in one German sentence.
 
 ## Environment (Mac)
-- Go 1.27.0 at /usr/local/go, GOTOOLCHAIN=auto
+- Go: target **1.26.0** (owner-set); local toolchain go1.27.0 at /usr/local/go, GOTOOLCHAIN=auto — modules declare `go 1.26.0`, no reinstall needed
 - PostgreSQL 18 local — admin: `sudo -u postgres psql`
 - Docker CLI + colima (`colima start` before first container work)
 - Node 25 + nvm; pnpm when the frontend block starts
-- VS Code = the team editor
+- VS Code = the team editor (work: Windows + WSL Alpine remote; this Mac: not yet installed — Block 0)
 
 ## Commands
 ```bash
@@ -29,14 +30,19 @@ gofmt -l . ; go vet ./...
 ## Rules
 - `archive/` is gitignored. Never un-ignore it, never commit company content.
 - Append discoveries to LEARNINGS.md as blocks complete.
-- Fresh start 2026-11-20: direction is Luis's call, recorded here once decided.
+- Direction (set 2026-11-20): **Learn Go with Tests** (quii.gitbook.io/learn-go-with-tests) — chapter by chapter, TDD: build → question → answer → confirm, then next part. Book cloned (gitignored): `.knowledge/learn-go-with-tests/`.
 
 ## Manager & Context Masters organization (installed 2026-11-20)
 
 One Manager (the session agent — "teacher manager") talks to the owner. Context Masters (CMs) are small, isolated specialists in `.pi/agents/`. Knowledge lives in files, never sessions.
 
 ### Roster
-*(empty — CMs are earned via triggers, never planned. Counter: `cm-candidates.md`.)*
+| CM | Domain | Kind | Knowledge sources | Model |
+|---|---|---|---|---|
+| go-language | Go language | decision-CM | `go doc` · `/usr/local/go/doc/` · `.knowledge/learn-go-with-tests/` | glm-5.3-flash |
+| vscode | VS Code & remote dev (WSL/SSH/containers), keymaps, drills | decision-CM (owns `.vscode/`) | `.knowledge/vscode-docs/` · `code` CLI · on-disk extension state | glm-5.3-flash |
+
+*(Future CMs are earned via triggers, never planned. Counter: `cm-candidates.md`.)*
 
 ### Laws
 1. **CM-first** — before editing files in a CM's domain, spawn that CM's brain first; implement inside its checklist; deviations declared in one line. Exempt: read-only work, typo fixes, doc/git upkeep, test runs.
